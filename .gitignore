@@ -1,0 +1,23 @@
+﻿# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Agent/tool local state
+.codex/
+.claude/
+
+# Build, coverage and temporary output
+coverage/
+dist/
+build/
+.out/
+.tmp/
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
