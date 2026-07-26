@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 20% 98%;
+  --foreground: 220 20% 12%;
+  --muted: 40 12% 94%;
+  --muted-foreground: 220 8% 42%;
+  --border: 40 10% 88%;
+  --accent: 160 35% 32%;
+  --accent-foreground: 0 0% 100%;
+  --sidebar: 40 14% 96%;
+  --card: 0 0% 100%;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  border-color: hsl(var(--border));
+}

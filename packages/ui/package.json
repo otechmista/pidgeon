@@ -1,0 +1,7 @@
+{
+  "name": "@pidgeon/ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design tokens and shared UI notes for Pidgeon (components live in apps/web for MVP).",
+  "type": "module"
+}

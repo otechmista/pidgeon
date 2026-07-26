@@ -1,0 +1,31 @@
+{
+  "name": "@pidgeon/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build:main": "bunx esbuild src/main/index.ts --bundle --platform=node --format=cjs --outfile=dist/main/index.js --external:electron --external:better-sqlite3 --external:@node-rs/argon2",
+    "build:preload": "bunx esbuild src/preload/index.ts --bundle --platform=node --format=cjs --outfile=dist/preload/index.js --external:electron",
+    "build:packages": "bun run --filter @pidgeon/shared build && bun run --filter @pidgeon/crypto build && bun run --filter @pidgeon/db build && bun run --filter @pidgeon/services build",
+    "build": "bun run build:packages && bun run build:main && bun run build:preload && bun run --filter @pidgeon/web build",
+    "dev": "bun run build:packages && bun run build:main && bun run build:preload && concurrently -k \"bun run --filter @pidgeon/web dev\" \"wait-on tcp:5173 && electron .\"",
+    "start": "electron .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@pidgeon/crypto": "workspace:*",
+    "@pidgeon/db": "workspace:*",
+    "@pidgeon/services": "workspace:*",
+    "@pidgeon/shared": "workspace:*",
+    "better-sqlite3": "^13.0.1",
+    "@node-rs/argon2": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.7.2",
+    "wait-on": "^8.0.1"
+  }
+}

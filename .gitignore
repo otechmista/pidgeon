@@ -1,4 +1,19 @@
-﻿# Local environment and secrets
+﻿# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+out/
+release/
+*.tsbuildinfo
+
+# Local data
+data/
+*.db
+*.db-journal
+
+# Env / secrets
 .env
 .env.*
 !.env.example
@@ -9,15 +24,12 @@
 .codex/
 .claude/
 
-# Build, coverage and temporary output
+# Coverage / logs
 coverage/
-dist/
-build/
-.out/
-.tmp/
 *.log
 
 # OS/editor
 .DS_Store
 Thumbs.db
-
+.idea/
+.vscode/
